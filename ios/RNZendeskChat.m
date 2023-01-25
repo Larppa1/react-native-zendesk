@@ -169,7 +169,7 @@ RCT_EXPORT_METHOD(setNotificationToken:(NSData *)deviceToken) {
     }
     ZDKChatConfiguration *chatConfiguration = [[ZDKChatConfiguration alloc] init];
 
-    if (options[@"chatOnly"] == NO) {
+    if (options[@"chatOnly"]) {
         chatConfiguration.isPreChatFormEnabled = YES;
         chatConfiguration.isAgentAvailabilityEnabled = YES;
       } else {
