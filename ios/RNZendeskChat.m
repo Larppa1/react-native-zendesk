@@ -158,7 +158,7 @@ RCT_EXPORT_METHOD(setNotificationToken:(NSData *)deviceToken) {
     NSMutableArray *engines = [[NSMutableArray alloc] init];
     ZDKChatConfiguration *chatConfiguration = [[ZDKChatConfiguration alloc] init];
 
-    if([options valueForKey:@"chatOnly"] == 1) {
+    if([options valueForKey:@"chatOnly"] isKindOfClass:[NSNumber class]) {
       chatConfiguration.isPreChatFormEnabled = YES;
       chatConfiguration.isAgentAvailabilityEnabled = YES;
     } else {
