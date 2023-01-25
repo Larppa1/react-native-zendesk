@@ -9,7 +9,6 @@
 #import <SupportSDK/SupportSDK.h>
 #import <SupportProvidersSDK/SupportProvidersSDK.h>
 #import <ZendeskCoreSDK/ZendeskCoreSDK.h>
-#import <React/RCTWarn.h>
 
 @implementation RNZendeskChat
 
@@ -159,8 +158,7 @@ RCT_EXPORT_METHOD(setNotificationToken:(NSData *)deviceToken) {
     NSMutableArray *engines = [[NSMutableArray alloc] init];
     ZDKChatConfiguration *chatConfiguration = [[ZDKChatConfiguration alloc] init];
 
-
-    if([[options valueForKey:@"chatOnly"] isKindOfClass:[NSNumber class]]) {
+    if([[options valueForKey:@"chatOnly"] isEqualToNumber:[NSNumber numberWithBool:NO]]) {
       chatConfiguration.isPreChatFormEnabled = YES;
       chatConfiguration.isAgentAvailabilityEnabled = YES;
     } else {
