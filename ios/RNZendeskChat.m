@@ -168,8 +168,17 @@ RCT_EXPORT_METHOD(setNotificationToken:(NSData *)deviceToken) {
       ];
     }
     ZDKChatConfiguration *chatConfiguration = [[ZDKChatConfiguration alloc] init];
-    chatConfiguration.isPreChatFormEnabled = NO;
-    chatConfiguration.isAgentAvailabilityEnabled = NO;
+    
+    if (options[@"chatOnly"]) {
+      NSBool *chatOnly = options[@"chatOnly"];
+      if (chatOnly) {
+        chatConfiguration.isPreChatFormEnabled = NO;
+        chatConfiguration.isAgentAvailabilityEnabled = NO;
+      } else {
+        chatConfiguration.isPreChatFormEnabled = YES;
+        chatConfiguration.isAgentAvailabilityEnabled = YES;
+      }
+    }
 
     UIViewController *chatController =[ZDKMessaging.instance buildUIWithEngines:engines
                                                                         configs:@[messagingConfiguration, chatConfiguration]
