@@ -168,12 +168,11 @@ public class RNZendeskChat extends ReactContextBaseJavaModule {
         setUserIdentity(options);
         String botName = options.getString("botName");
         Activity activity = getCurrentActivity();
-        
+
         if (options.hasKey("chatOnly")) {
             boolean chatOnly = options.getBoolean("chatOnly");
             if (chatOnly) {
                 MessagingActivity.builder()
-                    .withBotLabelString(botName)
                     .withEngines(ChatEngine.engine(), SupportEngine.engine())
                     .show(activity, ChatConfiguration.builder()
                         .withAgentAvailabilityEnabled(false)
