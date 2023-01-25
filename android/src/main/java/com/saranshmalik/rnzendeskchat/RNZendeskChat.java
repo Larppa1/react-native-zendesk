@@ -135,6 +135,10 @@ public class RNZendeskChat extends ReactContextBaseJavaModule {
     public void showHelpCenter(ReadableMap options) {
         String botName = options.hasKey("botName") ? options.getString("botName") : "Chat Bot";
         Activity activity = getCurrentActivity();
+        if (!options.hasKey("disableTicketCreation") || !options.hasKey("withChat")) {
+            HelpCenterActivity.builder()
+                .show(activity);
+        }
         if (options.hasKey("disableTicketCreation")) {
             boolean disableTicketCreation = options.getBoolean("disableTicketCreation");
             if (disableTicketCreation) {
@@ -144,9 +148,6 @@ public class RNZendeskChat extends ReactContextBaseJavaModule {
                     .show(activity, ViewArticleActivity.builder()
                         .withContactUsButtonVisible(false)
                         .config());
-            } else {
-                HelpCenterActivity.builder()
-                    .show(activity);
             }
         }
         if (options.hasKey("withChat")) {
@@ -154,9 +155,6 @@ public class RNZendeskChat extends ReactContextBaseJavaModule {
             if (withChat) {
                 HelpCenterActivity.builder()
                     .withEngines(ChatEngine.engine())
-                    .show(activity);
-            } else {
-                HelpCenterActivity.builder()
                     .show(activity);
             }
         }
