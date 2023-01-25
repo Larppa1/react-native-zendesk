@@ -135,27 +135,29 @@ public class RNZendeskChat extends ReactContextBaseJavaModule {
     public void showHelpCenter(ReadableMap options) {
         String botName = options.hasKey("botName") ? options.getString("botName") : "Chat Bot";
         Activity activity = getCurrentActivity();
-        /* if (options.hasKey("withChat")) {
-            HelpCenterActivity.builder()
-             .withEngines(ChatEngine.engine())
-             .show(activity);
-        } else if (options.hasKey("disableTicketCreation")) {
-            HelpCenterActivity.builder()
-              .withContactUsButtonVisible(false)
-              .withShowConversationsMenuButton(false)
-              .show(activity, ViewArticleActivity.builder()
-                                                 .withContactUsButtonVisible(false)
-                                                 .config());
-        } else {
-            HelpCenterActivity.builder()
-             .show(activity);
-        } */
         if (options.hasKey("disableTicketCreation")) {
             boolean disableTicketCreation = options.getBoolean("disableTicketCreation");
             if (disableTicketCreation) {
-                HelpCenterActivity.builder().withContactUsButtonVisible(false).withShowConversationsMenuButton(false).show(activity, ViewArticleActivity.builder().withContactUsButtonVisible(false).config());
+                HelpCenterActivity.builder()
+                    .withContactUsButtonVisible(false)
+                    .withShowConversationsMenuButton(false)
+                    .show(activity, ViewArticleActivity.builder()
+                        .withContactUsButtonVisible(false)
+                        .config());
             } else {
-                HelpCenterActivity.builder().show(activity);
+                HelpCenterActivity.builder()
+                    .show(activity);
+            }
+        }
+        if (options.hasKey("withChat")) {
+            boolean withChat = options.getBoolean("withChat");
+            if (withChat) {
+                HelpCenterActivity.builder()
+                    .withEngines(ChatEngine.engine())
+                    .show(activity);
+            } else {
+                HelpCenterActivity.builder()
+                    .show(activity);
             }
         }
     }
