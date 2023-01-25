@@ -154,7 +154,6 @@ public class RNZendeskChat extends ReactContextBaseJavaModule {
             boolean withChat = options.getBoolean("withChat");
             if (withChat) {
                 HelpCenterActivity.builder()
-                    .withBotLabelString(botName)
                     .withEngines(ChatEngine.engine())
                     .show(activity);
             }
@@ -174,6 +173,7 @@ public class RNZendeskChat extends ReactContextBaseJavaModule {
             boolean chatOnly = options.getBoolean("chatOnly");
             if (chatOnly) {
                 MessagingActivity.builder()
+                    .withBotLabelString(botName)
                     .withEngines(ChatEngine.engine(), SupportEngine.engine())
                     .show(activity, ChatConfiguration.builder()
                         .withAgentAvailabilityEnabled(false)
