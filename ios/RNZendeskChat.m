@@ -166,10 +166,10 @@ RCT_EXPORT_METHOD(setNotificationToken:(NSData *)deviceToken) {
         (id <ZDKEngine>) [ZDKChatEngine engineAndReturnError:&error],
         (id <ZDKEngine>) [ZDKSupportEngine engineAndReturnError:&error], 
       ];
-      chatConfiguration.isPreChatFormEnabled = YES;
-      chatConfiguration.isAgentAvailabilityEnabled = YES;
     }
     ZDKChatConfiguration *chatConfiguration = [[ZDKChatConfiguration alloc] init];
+    chatConfiguration.isPreChatFormEnabled = YES;
+    chatConfiguration.isAgentAvailabilityEnabled = YES;
 
     UIViewController *chatController =[ZDKMessaging.instance buildUIWithEngines:engines
                                                                         configs:@[messagingConfiguration, chatConfiguration]
