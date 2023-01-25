@@ -76,9 +76,9 @@ RCT_EXPORT_METHOD(setUserIdentity: (NSDictionary *)user) {
 }
 
 RCT_EXPORT_METHOD(init:(NSDictionary *)options) {
-  [ZDKZendesk initializeWithAppId:options[@"appId"]
-      clientId: options[@"clientId"]
-      zendeskUrl: options[@"url"]];
+  [ZDKZendesk initializeWithAppId:@"dd4593477ec0d1fcbe0df41da0626f8ce70c57437348e14e"
+      clientId: @"mobile_sdk_client_6bde5439e1bbca4cbd16"
+      zendeskUrl: @"https://hoiwa.zendesk.com";
   [ZDKSupport initializeWithZendesk: [ZDKZendesk instance]];
   [ZDKAnswerBot initializeWithZendesk:[ZDKZendesk instance] support:[ZDKSupport instance]];
   [ZDKChat initializeWithAccountKey:options[@"key"] queue:dispatch_get_main_queue()];
