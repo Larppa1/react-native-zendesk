@@ -161,8 +161,6 @@ RCT_EXPORT_METHOD(setNotificationToken:(NSData *)deviceToken) {
         (id <ZDKEngine>) [ZDKChatEngine engineAndReturnError:&error]
       ];
     } else {
-      chatConfiguration.isPreChatFormEnabled = YES;
-      chatConfiguration.isAgentAvailabilityEnabled = YES;
       engines = @[
         (id <ZDKEngine>) [ZDKAnswerBotEngine engineAndReturnError:&error],
         (id <ZDKEngine>) [ZDKChatEngine engineAndReturnError:&error],
