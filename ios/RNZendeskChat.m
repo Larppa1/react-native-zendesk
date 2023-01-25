@@ -108,7 +108,7 @@ RCT_EXPORT_METHOD(setNotificationToken:(NSData *)deviceToken) {
 
 - (void) showHelpCenterFunction:(NSDictionary *)options {
     NSError *error = nil;
-    ZDKChatEngine *chatEngine = [ZDKChatEngine engineAndReturnError:&error];
+    /* ZDKChatEngine *chatEngine = [ZDKChatEngine engineAndReturnError:&error]; */
     ZDKSupportEngine *supportEngine = [ZDKSupportEngine engineAndReturnError:&error];
     NSArray *engines = @[];
     ZDKMessagingConfiguration *messagingConfiguration = [ZDKMessagingConfiguration new];
