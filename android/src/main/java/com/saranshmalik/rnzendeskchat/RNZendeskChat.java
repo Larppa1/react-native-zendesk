@@ -167,22 +167,27 @@ public class RNZendeskChat extends ReactContextBaseJavaModule {
         setVisitorInfo(options);
         setUserIdentity(options);
         String botName = options.getString("botName");
-        ChatConfiguration chatConfiguration = ChatConfiguration.builder()
-                .withAgentAvailabilityEnabled(true)
-                .withOfflineFormEnabled(true)
-                .build();
-
         Activity activity = getCurrentActivity();
+        
         if (options.hasKey("chatOnly")) {
-           MessagingActivity.builder()
+            boolean chatOnly = options.getBoolean("chatOnly");
+            if (chatOnly) {
+                MessagingActivity.builder()
                     .withBotLabelString(botName)
                     .withEngines(ChatEngine.engine(), SupportEngine.engine())
-                    .show(activity, chatConfiguration);
-        } else {
-            MessagingActivity.builder()
+                    .show(activity, ChatConfiguration.builder()
+                        .withAgentAvailabilityEnabled(false)
+                        .withOfflineFormEnabled(false)
+                        .build());
+            }else {
+                MessagingActivity.builder()
                     .withBotLabelString(botName)
                     .withEngines(AnswerBotEngine.engine(), ChatEngine.engine(), SupportEngine.engine())
-                    .show(activity, chatConfiguration);
+                    .show(activity, ChatConfiguration.builder()
+                        .withAgentAvailabilityEnabled(true)
+                        .withOfflineFormEnabled(true)
+                        .build());
+            }
         }
       
     }
