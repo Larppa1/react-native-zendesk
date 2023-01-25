@@ -177,8 +177,8 @@ public class RNZendeskChat extends ReactContextBaseJavaModule {
                     .show(activity, ChatConfiguration.builder()
                         .withAgentAvailabilityEnabled(false)
                         .withOfflineFormEnabled(false)
-                        .withChatTranscriptPrompt(false)
-                        .withPreChatForm(false)
+                        .withChatTranscriptPromptEnabled(false)
+                        .withPreChatFormEnabled(false)
                         .build());
             }else {
                 MessagingActivity.builder()
