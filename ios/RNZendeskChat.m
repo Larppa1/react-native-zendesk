@@ -118,7 +118,7 @@ RCT_EXPORT_METHOD(setNotificationToken:(NSData *)deviceToken) {
     helpCenterUiConfig.objcEngines = engines;
     ZDKArticleUiConfiguration* articleUiConfig = [ZDKArticleUiConfiguration new];
     articleUiConfig.objcEngines = engines;
-    helpCenterUiConfig.showContactOptions = NO;
+    helpCenterUiConfig.showContactOptions = YES;
     articleUiConfig.showContactOptions = NO;
     UIViewController* controller = [ZDKHelpCenterUi buildHelpCenterOverviewUiWithConfigs: @[helpCenterUiConfig, articleUiConfig]];
     // controller.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle: @"Close"
