@@ -140,11 +140,11 @@ RCT_EXPORT_METHOD(setNotificationToken:(NSData *)deviceToken) {
 
     ZDKCustomField *customFieldOne = [[ZDKCustomField alloc] initWithFieldId:@1234567 value:@"some_value"];
     ZDKRequestUiConfiguration * config = [ZDKRequestUiConfiguration new];
-    /* config.subject = "iOS Ticket"
+    config.subject = "iOS Ticket"
     config.tags = ["ios", "mobile"]
     config.customFields = [customFieldOne]
 
-    UIViewController *requestController = [ZDKRequestUi buildRequestUiWith:@[config]];
+    /* UIViewController *requestController = [ZDKRequestUi buildRequestUiWith:@[config]];
     [self.navigationController pushViewController:requestController animated:YES]; */
 }
 
