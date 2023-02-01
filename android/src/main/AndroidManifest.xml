@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="com.saranshmalik.rnzendeskchat">
+  package="com.saranshmalik.rnzendeskchat"
+  xmlns:tools="http://schemas.android.com/tools">
   <application
     android:theme="@style/DarkTheme"
   />
