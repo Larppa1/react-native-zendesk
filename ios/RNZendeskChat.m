@@ -113,17 +113,13 @@ RCT_EXPORT_METHOD(setNotificationToken:(NSData *)deviceToken) {
     NSArray *engines = @[];
     ZDKMessagingConfiguration *messagingConfiguration = [ZDKMessagingConfiguration new];
     NSString *botName = @"ChatBot";
-    if (options[@"withChat"]) {
-      engines = @[(id <ZDKEngine>) [ZDKChatEngine engineAndReturnError:&error]];
-    }
+    engines = @[(id <ZDKEngine>) [ZDKChatEngine engineAndReturnError:&error]];
     ZDKHelpCenterUiConfiguration* helpCenterUiConfig = [ZDKHelpCenterUiConfiguration new];
     helpCenterUiConfig.objcEngines = engines;
     ZDKArticleUiConfiguration* articleUiConfig = [ZDKArticleUiConfiguration new];
     articleUiConfig.objcEngines = engines;
-     if (options[@"disableTicketCreation"]) {
-         helpCenterUiConfig.showContactOptions = NO;
-         articleUiConfig.showContactOptions = NO;
-    }
+    helpCenterUiConfig.showContactOptions = NO;
+    articleUiConfig.showContactOptions = NO;
     UIViewController* controller = [ZDKHelpCenterUi buildHelpCenterOverviewUiWithConfigs: @[helpCenterUiConfig, articleUiConfig]];
     // controller.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle: @"Close"
     //                                                                                    style: UIBarButtonItemStylePlain
