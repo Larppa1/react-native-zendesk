@@ -138,6 +138,7 @@ public class RNZendeskChat extends ReactContextBaseJavaModule {
         HelpCenterActivity.builder()
             .withContactUsButtonVisible(false)
             .withShowConversationsMenuButton(false)
+            .withEngines(ChatEngine.engine())
             .show(activity, ViewArticleActivity.builder()
                 .withContactUsButtonVisible(false)
                 .config());
