@@ -139,7 +139,6 @@ public class RNZendeskChat extends ReactContextBaseJavaModule {
             .withEngines(ChatEngine.engine())
             .show(activity, ViewArticleActivity.builder()
                 .withContactUsButtonVisible(false)
-                .withRequestSubject("Viesti Hoiwa-sovelluksesta")
                 .config());
         /* if (!options.hasKey("disableTicketCreation") || !options.hasKey("withChat")) {
             HelpCenterActivity.builder()
