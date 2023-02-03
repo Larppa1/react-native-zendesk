@@ -136,9 +136,11 @@ public class RNZendeskChat extends ReactContextBaseJavaModule {
         String botName = options.hasKey("botName") ? options.getString("botName") : "Chat Bot";
         Activity activity = getCurrentActivity();
         HelpCenterActivity.builder()
+            .withDepartment("IT Tuki")
             .withEngines(ChatEngine.engine())
             .show(activity, ViewArticleActivity.builder()
                 .withContactUsButtonVisible(false)
+                .withRequestSubject("Viesti Hoiwa-sovelluksesta")
                 .config());
         /* if (!options.hasKey("disableTicketCreation") || !options.hasKey("withChat")) {
             HelpCenterActivity.builder()
