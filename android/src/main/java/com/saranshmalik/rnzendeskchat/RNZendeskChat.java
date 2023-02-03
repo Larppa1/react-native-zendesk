@@ -91,10 +91,13 @@ public class RNZendeskChat extends ReactContextBaseJavaModule {
         if (options.hasKey("phone")) {
             builder = builder.withPhoneNumber(options.getString("phone"));
         }
+        if (options.hasKey("department")) {
+            builder = builder.withDepartmentName(options.getString("department"));
+        }
         VisitorInfo visitorInfo = builder.build();
         profileProvider.setVisitorInfo(visitorInfo, null);
-        if (options.hasKey("department"))
-            chatProvider.setDepartment(options.getString("department"), null);
+        /* if (options.hasKey("department"))
+            chatProvider.setDepartment(options.getString("department"), null); */
 
     }
 
